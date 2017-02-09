@@ -13,9 +13,7 @@ class DosesController < ApplicationController
     @dose.description = params[:dose][:description]
     @dose.ingredient = @ingredient
     @dose.cocktail = @cocktail
-    render :new unless @cocktail.save
-    render :new unless @ingredient.save
-    if @dose.save
+    if @cocktail.save && @ingredient.save && @dose.save
       redirect_to cocktail_path(@cocktail)
     else
       render :new
