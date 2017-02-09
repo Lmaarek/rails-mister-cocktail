@@ -1,0 +1,5 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <p><%= f.input :ingredient %></p>
+  <p><%= f.input :description %></p>
+  <p><%= f.submit "Add a dose" %></p>
+<% end %>
