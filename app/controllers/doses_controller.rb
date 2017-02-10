@@ -16,8 +16,15 @@ class DosesController < ApplicationController
     if @cocktail.save && @ingredient.save && @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      render :new
+      render "cocktail/show"
     end
+  end
+
+  def destroy
+    @dose = Dose.find(params[:id])
+    @cocktail = @dose.cocktail
+    @dose.destroy
+    redirect_to cocktail_path(@cocktail)
   end
 
 
